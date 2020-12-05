@@ -1,12 +1,13 @@
-import "package:flutter/material.dart";
-import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'face_detection.dart';
 
 class FaceDetectorHome extends StatefulWidget {
+  FaceDetectorHome({Key key}) : super(key: key);
+
   @override
-  _FaceDetectorHomeState createState() => _FaceDetectorHomeState();
+  State<StatefulWidget> createState() => _FaceDetectorHomeState();
 }
 
 class _FaceDetectorHomeState extends State<FaceDetectorHome> {
@@ -34,13 +35,13 @@ class _FaceDetectorHomeState extends State<FaceDetectorHome> {
     );
   }
 
-  
   Widget buildRowTitle(BuildContext context, String title) {
     return Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
           child: Text(
             title,
+            style: Theme.of(context).textTheme.headline,
           ),
         )
     );
@@ -63,11 +64,14 @@ class _FaceDetectorHomeState extends State<FaceDetectorHome> {
               color: Colors.blue,
               textColor: Colors.white,
               splashColor: Colors.blueGrey,
-              onPressed: null,
+              onPressed: () {
+                onPickImageSelected(imgSource);
+              },
               child: new Text(imgSource)),
         )
     );
   }
+
 
   onPickImageSelected(String imgSource) async {
     var src;

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'face_detection_home.dart';
 
-void main() => runApp(new FaceDetectorApp());
+void main() {
+  
+  runApp(new FaceDetectorApp());
+}
 
 class FaceDetectorApp extends StatelessWidget {
   // This widget is the root of your application.
+ 
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -15,4 +19,5 @@ class FaceDetectorApp extends StatelessWidget {
       home: new FaceDetectorHome(),
     );
   }
+
 }
