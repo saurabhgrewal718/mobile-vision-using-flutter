@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'face_detection.dart';
 
 class FaceDetectorHome extends StatefulWidget {
   @override
@@ -38,7 +41,6 @@ class _FaceDetectorHomeState extends State<FaceDetectorHome> {
           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.headline,
           ),
         )
     );
@@ -61,11 +63,23 @@ class _FaceDetectorHomeState extends State<FaceDetectorHome> {
               color: Colors.blue,
               textColor: Colors.white,
               splashColor: Colors.blueGrey,
-              onPressed: () {
-                null;
-              },
+              onPressed: null,
               child: new Text(imgSource)),
         )
+    );
+  }
+
+  onPickImageSelected(String imgSource) async {
+    var src;
+    if(imgSource == 'Gallery')
+      src = ImageSource.gallery;
+    else
+      src = ImageSource.camera;
+    File img = await ImagePicker.pickImage(source: src);
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+          builder: (context) => FaceDetection(img)),
     );
   }
 }
