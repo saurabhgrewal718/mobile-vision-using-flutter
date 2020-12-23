@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669403445273",
+    "project_id": "ml-projects-mobile-vision",
+    "storage_bucket": "ml-projects-mobile-vision.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669403445273:android:59cfe7143275e5c5f0d288",
+        "android_client_info": {
+          "package_name": "com.example.mobile_vision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669403445273-ip0qril1dq3cplebh8bprr7slqfu7cgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDrfQ5Qdv-Uswshzod-rrV9m5vQ_B04Xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669403445273-ip0qril1dq3cplebh8bprr7slqfu7cgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
