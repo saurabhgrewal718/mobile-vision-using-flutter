@@ -20,6 +20,7 @@ class _FaceDetectionState extends State<FaceDetection> {
   List<Face> faces;
   var result = "";
   double res = 0;
+  int totalfaces = 0;
 
   @override
   void initState() {
@@ -39,6 +40,13 @@ class _FaceDetectionState extends State<FaceDetection> {
           children: [
             Text("Smiling probablity is : "),
             Text((res*100).toStringAsFixed(2)+"%",
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),),
+            Text("total faces detected : "),
+            Text(totalfaces.toString(),
             style: TextStyle(
               color: Colors.green,
               fontSize: 30,
@@ -80,6 +88,7 @@ class _FaceDetectionState extends State<FaceDetection> {
       print("Smiling Probablity for $i: $smileProbablity");
       setState(() {
         res= smileProbablity;
+        totalfaces=detectedFaces.length;
       });
     }
       faces = detectedFaces;
