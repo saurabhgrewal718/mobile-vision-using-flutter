@@ -19,6 +19,7 @@ class _FaceDetectionState extends State<FaceDetection> {
   ui.Image image;
   List<Face> faces;
   var result = "";
+  double res = 0;
 
   @override
   void initState() {
@@ -34,12 +35,23 @@ class _FaceDetectionState extends State<FaceDetection> {
       ),
       body: (image == null) ? Center(child: CircularProgressIndicator(),): 
       Center(
-        child: FittedBox(
-          child: SizedBox(
-            width: image.width.toDouble(),
-            height: image.width.toDouble(),
-            child: CustomPaint(painter: FacePainter(image, faces))
-          ),
+        child: Column(
+          children: [
+            Text("Smiling probablity is : "),
+            Text((res*100).toStringAsFixed(2)+"%",
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),),
+            FittedBox(
+              child: SizedBox(
+                width: image.width.toDouble(),
+                height: image.width.toDouble(),
+                child:CustomPaint(painter: FacePainter(image, faces))
+              ),
+            ),
+          ],
         ),
       )
     );
@@ -66,6 +78,9 @@ class _FaceDetectionState extends State<FaceDetection> {
     for (var i = 0; i < detectedFaces.length; i++) {
       final double smileProbablity = detectedFaces[i].smilingProbability;
       print("Smiling Probablity for $i: $smileProbablity");
+      setState(() {
+        res= smileProbablity;
+      });
     }
       faces = detectedFaces;
       loadImage(widget.file);
